@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+require 'active_record'
+require 'pg'
+require 'pry'
+
+# Load Rails
+ENV['RAILS_ENV'] = ARGV[0] || 'production'
+DIR = File.open("#{Dir.pwd}/config/environment.rb") 
+require DIR #+ '/environment'
+
+db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
+ActiveRecord::Base.establish_connection db_config['development']
+db = ActiveRecord::Base.connection
+binding.pry
+schema = db.tables.map do |table|
+  {table =>
+    {attributes:
+      (db.columns(table).map(&:name))#,
+      # associations:
+      #   table.classify.constantize.reflections.map { |r|
+      #   r[1].table_name
+      # }
+    }
+  }
+end
+
+p schema
