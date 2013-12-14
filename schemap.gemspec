@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Schemap::VERSION
   spec.authors       = ["Nathaniel Wroblewski"]
   spec.email         = ["nathanielwroblewski@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Visualize your Rails schema}
+  spec.summary       = %q{Converts your Rails schema to a D3 force graph}
+  spec.homepage      = "https://github.com/NathanielWroblewski/schemap"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
