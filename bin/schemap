@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative '../lib/schemap'
+require 'activerecord'
 
 p ActiveRecord::Base.retrieve_connection
 schema = Schemap::Schemap.generate_schema
