@@ -22,7 +22,7 @@
 
 var width = 960,
     height = 500,
-    root;
+    root = window.schemap;
 
 var force = d3.layout.force()
     .size([width, height])
@@ -36,7 +36,7 @@ var link = svg.selectAll(".link"),
     node = svg.selectAll(".node");
 
 function update() {
-  debugger
+  root = window.schemap;
   var nodes = flatten(root),
       links = d3.layout.tree().links(nodes);
 
@@ -111,6 +111,7 @@ function flatten(root) {
   var nodes = [], i = 0;
 
   function recurse(node) {
+    debugger
     if (node.children) node.children.forEach(recurse);
     if (!node.id) node.id = ++i;
     nodes.push(node);
