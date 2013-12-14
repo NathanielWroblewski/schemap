@@ -3,10 +3,10 @@ require "schemap/version"
 module Schemap
   class Schemap
     def self.generate_schema
-      APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
-      p APP_ROOT
-      APP_NAME = APP_ROOT.basename
-      p APP_NAME
+      app_root = Pathname.new(File.expand_path('../../', __FILE__))
+      p app_root
+      app_name = APP_ROOT.basename
+      p app_name
       blah = APP_ROOT.basename.to_s
       p blah
 
