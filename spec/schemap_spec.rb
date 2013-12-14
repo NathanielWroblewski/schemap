@@ -1,7 +1,9 @@
 require 'spec_helper'
 require_relative '../lib/schemap'
 
-# describe Schemap, '#generate_schema'
+describe Schemap, '#generate_schema'
+
+end
 
 
 
