@@ -1,5 +1,5 @@
 require 'schemap/version'
-require 'active_support/all'
+require 'rails'
 
 module Schemap
   class Schemap
