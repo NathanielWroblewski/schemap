@@ -3,9 +3,12 @@ require "schemap/version"
 module Schemap
   class Schemap
     def self.generate_schema
-      p APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
-      p APP_NAME = APP_ROOT.basename
-      p APP_NAME = APP_ROOT.basename.to_s
+      APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
+      p APP_ROOT
+      APP_NAME = APP_ROOT.basename
+      p APP_NAME
+      blah = APP_ROOT.basename.to_s
+      p blah
 
       db = ActiveRecord::Base.connection
       db.tables.map do |table|
