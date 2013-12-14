@@ -1,13 +1,16 @@
 require "schemap/version"
 
 module Schemap
+  class Railtie < Rails::Railtie
+    initializer "Loading Schemap" do
+      ActiveSupport.on_load(:action_controller) do
+      include Schemap
+    end
+  end
+
   class Schemap
     def self.generate_schema
-      app_root = Pathname.new(File.expand_path('../../', __FILE__))
-      p app_root
-      p app_root.basename
-      blah = app_root.basename.to_s
-      p blah
+      p Rails.root
 
       db = ActiveRecord::Base.connection
       db.tables.map do |table|
