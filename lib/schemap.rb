@@ -3,8 +3,7 @@ require 'active_support/core_ext/string/inflections'
 
 module Schemap
   class Schemap
-    def self.generate_schema(rails_app)
-      db = ActiveRecord::Base.connection
+    def self.generate_schema(db)
       db.tables.map do |table|
         {table =>
           {attributes:

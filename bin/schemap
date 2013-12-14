@@ -2,6 +2,6 @@
 require_relative '../lib/schemap'
 require 'active_record'
 
-p ActiveRecord::Base.retrieve_connection
-schema = Schemap::Schemap.generate_schema
+db = ActiveRecord::Base.establish_connection
+schema = Schemap::Schemap.generate_schema db
 p schema
