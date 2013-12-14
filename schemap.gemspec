@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-expectations'
   spec.add_development_dependency 'rspec-mocks'
   spec.add_runtime_dependency 'rails'
-  spec.add_runtime_dependency 'binding-pry'
+  spec.add_runtime_dependency 'pry'
   spec.add_runtime_dependency 'activerecord'
   spec.add_runtime_dependency 'activesupport'
 end
