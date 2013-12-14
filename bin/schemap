@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 require 'active_record'
-require 'pry'
 require 'pg'
-
-binding.pry
 
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
 ActiveRecord::Base.establish_connection db_config['development']
