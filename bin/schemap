@@ -1,16 +1,8 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/schemap'
+
 schema_path = (ARGV[0] ? ARGV[0] : '')
 p schema_path
+# call(schema_path)
 
-
-class Dog
-
-  def initialize
-
-  end
-
-  def bark
-    p 'woof'
-  end
-end
