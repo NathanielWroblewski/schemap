@@ -1,15 +1,20 @@
 #!/usr/bin/env ruby
 require_relative '../lib/schemap'
-require 'rails'
 require 'active_record'
-require 'pry'
-
-binding.pry
 
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
 ActiveRecord::Base.establish_connection db_config['development']
 db = ActiveRecord::Base.connection
-p db.tables
+schema = db.tables.map do |table|
+  {table =>
+    {attributes:
+       (db.columns(table).map(&:name)),
+     associations:
+        table.classify.constantize.reflections.map { |r|
+          r[1].table_name
+        }
+    }
+  }
+end
 
-schema = Schemap::Schemap.generate_schema db.tables
 p schema
