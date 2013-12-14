@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
 require_relative '../lib/schemap'
-require 'active_record'
+require 'rails'
 
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
 ActiveRecord::Base.establish_connection db_config['development']
 db = ActiveRecord::Base.connection
+p db.tables
 
-schema = Schemap::Schemap.generate_schema db
+schema = Schemap::Schemap.generate_schema db.tables
 p schema
