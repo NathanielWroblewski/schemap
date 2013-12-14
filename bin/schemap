@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'active_record'
-require 'active_support/inflector/methods'
+require 'active_support/all'
 
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
 ActiveRecord::Base.establish_connection db_config['development']
