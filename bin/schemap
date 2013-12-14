@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require_relative '../lib/schemap'
 require 'active_record'
+require 'yaml'
 
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
 db = ActiveRecord::Base.establish_connection db_config['development']

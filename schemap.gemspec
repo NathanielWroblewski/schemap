@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-mocks'
   spec.add_runtime_dependency 'active_support'
   spec.add_runtime_dependency 'activerecord'
+  spec.add_runtime_dependency 'yaml'
 end
