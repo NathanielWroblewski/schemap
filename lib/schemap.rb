@@ -4,7 +4,8 @@ module Schemap
   class Railtie < Rails::Railtie
     initializer "Loading Schemap" do
       ActiveSupport.on_load(:action_controller) do
-      include Schemap
+        include Schemap
+      end
     end
   end
 
