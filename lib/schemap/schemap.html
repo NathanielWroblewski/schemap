@@ -35,11 +35,6 @@ var svg = d3.select("body").append("svg")
 var link = svg.selectAll(".link"),
     node = svg.selectAll(".node");
 
-d3.json("temp.json", function(json) {
-  root = json;
-  update();
-});
-
 function update() {
   debugger
   var nodes = flatten(root),
@@ -125,4 +120,4 @@ function flatten(root) {
   return nodes;
 }
 
-// </script>
+</script>
