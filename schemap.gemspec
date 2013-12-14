@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "bundler", "~> 1.3"
   spec.add_dependency "pry"
+  spec.add_dependency "pg"
   spec.add_dependency "rake"
   spec.add_dependency 'rspec'
   spec.add_dependency 'rspec-core'
