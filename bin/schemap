@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require_relative '../lib/schemap'
 
-schema = Schemap.generate_schema
+schema = Schemap::Schemap.generate_schema
 
 p schema
