@@ -5,7 +5,8 @@ module Schemap
     def self.generate_schema
       app_root = Pathname.new(File.expand_path('../../', __FILE__))
       p app_root
-      blah = APP_ROOT.basename.to_s
+      p app_root.basename
+      blah = app_root.basename.to_s
       p blah
 
       db = ActiveRecord::Base.connection
