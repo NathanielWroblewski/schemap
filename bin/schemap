@@ -2,8 +2,5 @@
 require_relative '../lib/schemap'
 require 'rails'
 
-p Rails.root
-p Rails.application
-
 schema = Schemap::Schemap.generate_schema(rails_app)
 p schema
