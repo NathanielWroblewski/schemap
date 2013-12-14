@@ -24,6 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-core'
   spec.add_development_dependency 'rspec-expectations'
   spec.add_development_dependency 'rspec-mocks'
-  spec.add_runtime_dependency 'active_support'
+  spec.add_runtime_dependency 'activesupport'
   spec.add_runtime_dependency 'activerecord'
 end

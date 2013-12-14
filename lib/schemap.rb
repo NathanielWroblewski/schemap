@@ -1,4 +1,5 @@
 require 'schemap/version'
+require 'activesupport'
 require 'active_support/core_ext/string/inflections'
 
 module Schemap
