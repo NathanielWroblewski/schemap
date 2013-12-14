@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+schema_path = (ARGV[0] ? ARGV[0] : '')
+p schema_path
+
+
+class Dog
+
+  def initialize
+
+  end
+
+  def bark
+    p 'woof'
+  end
+end
