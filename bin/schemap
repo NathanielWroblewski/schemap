@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 require_relative '../lib/schemap'
-require "#{Dir.pwd}"
 
-# rails_app = File.open("#{Dir.pwd}/config/routes.rb").each_line.first
-#   .gsub(/\:\:.*/, '').chomp
 p Rails.root
 p Rails.application
 
