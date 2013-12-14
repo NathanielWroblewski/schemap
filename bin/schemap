@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
 require 'active_record'
 require 'pg'
+require 'pry'
 
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
 ActiveRecord::Base.establish_connection db_config['development']
 db = ActiveRecord::Base.connection
+binding.pry
 schema = db.tables.map do |table|
   {table =>
     {attributes:
