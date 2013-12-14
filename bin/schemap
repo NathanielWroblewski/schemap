@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require 'active_record'
 require 'pry'
+require 'pg'
 
 binding.pry
 
