@@ -22,6 +22,9 @@ schema = db.tables[1..-1].map do |table|
   }
 end
 
-File.open('schemap/temp.json','w') do |file|
+File.open('temp.json','w') do |file|
   file << schema.to_json
 end
+
+html = File.expand_path('../../lib/schemap/schemap.html', __FILE__)
+`open #{html}`
