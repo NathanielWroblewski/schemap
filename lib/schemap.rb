@@ -4,7 +4,7 @@ require 'active_support/core_ext/string/inflections'
 module Schemap
   class Schemap
     def self.generate_schema(rails_app)
-      db = rails_app.constantize::ActiveRecord::Base.connection
+      db = ActiveRecord::Base.connection
       db.tables.map do |table|
         {table =>
           {attributes:

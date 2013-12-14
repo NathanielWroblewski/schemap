@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require_relative '../lib/schemap'
-require 'rails'
 
-schema = Schemap::Schemap.generate_schema(rails_app)
+schema = Schemap::Schemap.generate_schema
 p schema
