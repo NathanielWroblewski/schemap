@@ -2,8 +2,8 @@
 require_relative '../lib/schemap'
 require 'active_record'
 
-p ActiveRecord::Base.config_file_location
+db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
+db = ActiveRecord::Base.establish_connection db_config['development']
 
-# db = ActiveRecord::Base.establish_connection
-# schema = Schemap::Schemap.generate_schema db
-# p schema
+schema = Schemap::Schemap.generate_schema db
+p schema
