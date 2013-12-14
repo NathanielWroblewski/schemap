@@ -12,7 +12,7 @@ schema = db.tables.map do |table|
       # associations:
       #   table.classify.constantize.reflections.map { |r|
       #   r[1].table_name
-      }
+      # }
     }
   }
 end
