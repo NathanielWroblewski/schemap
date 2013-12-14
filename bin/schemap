@@ -2,7 +2,7 @@
 require_relative '../lib/schemap'
 require 'rails'
 require 'active_record'
-require 'pry'
+require 'binding-pry'
 
 binding.pry
 
