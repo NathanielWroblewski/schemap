@@ -1,6 +1,11 @@
 #!/usr/bin/env ruby
 require_relative '../lib/schemap'
 
-schema = Schemap::Schemap.generate_schema
+p '***'
+p Dir.pwd
+p '***'
+
+
+schema = Schemap::Schemap.generate_schema(Dir.pwd)
 
 p schema
