@@ -4,34 +4,22 @@ require 'pg'
 require 'pry'
 
 ENV['RAILS_ENV'] = ARGV[0] || 'production'
-DIR = File.open("#{Dir.pwd}/config/environment.rb")
-require DIR
+require "#{Dir.pwd}/config/environment.rb"
 
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
 ActiveRecord::Base.establish_connection db_config['development']
 db = ActiveRecord::Base.connection
-# tables = db.tables[1..-1].map do |table|
-#   {table =>
-#     {attributes:
-#       (db.columns(table).map(&:name)),
-#       associations:
-#         table.classify.constantize.reflections.map { |r|
-#         r[1].table_name
-#       }
-#     },
-#   }
-# end
-# edges = tables.flat_map{|record| record.values.last[:associations].map{|a| {source: record.keys[0], target: a}}}
-# table_names = db.tables[1..-1].map{|name| {name: name}}
+
 nodes = db.tables[1..-1].map{|table| {name: table}}
-links = db.tables[1..-1].map{|table| table.classify.constantize.reflections.map {|reflection|
-    {source: nodes.index(name: table), target: nodes.index(name: reflection[1].table_name)}
-  }
-}
+links = db.tables[1..-1].flat_map do |table|
+  table.classify.constantize.reflections.map do |reflection|
+    {source: nodes.index(name: table), target: nodes.index(name: reflection[1].table_name), value: rand(1..5)}
+  end
+end
 schema = {nodes: nodes, links: links}
 
 html = File.expand_path('../../lib/schemap/schemap.html', __FILE__)
 File.open(html, 'a') do |f|
-  f << "<script>window.schemap = #{schema.to_json};update()</script>"
+  f << "<script>window.schemap = #{schema.to_json};viz()</script>"
 end
 `open #{html}`
