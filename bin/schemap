@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require_relative '../lib/schemap'
 require 'active_record'
 
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
@@ -8,11 +7,11 @@ db = ActiveRecord::Base.connection
 schema = db.tables.map do |table|
   {table =>
     {attributes:
-       (db.columns(table).map(&:name)),
-     associations:
-        table.classify.constantize.reflections.map { |r|
-          r[1].table_name
-        }
+      (db.columns(table).map(&:name)),
+      associations:
+      table.classify.constantize.reflections.map { |r|
+        r[1].table_name
+      }
     }
   }
 end
