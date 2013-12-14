@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 require_relative '../lib/schemap'
 
-rails_app = File.open("#{Dir.pwd}/config/routes.rb").each_line.first
-  .gsub(/\:\:.*/, '').chomp
+# rails_app = File.open("#{Dir.pwd}/config/routes.rb").each_line.first
+#   .gsub(/\:\:.*/, '').chomp
+p Rails.root
+p Rails.application
+
 schema = Schemap::Schemap.generate_schema(rails_app)
 p schema
