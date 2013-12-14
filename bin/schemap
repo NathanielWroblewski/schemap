@@ -10,7 +10,7 @@ require DIR
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
 ActiveRecord::Base.establish_connection db_config['development']
 db = ActiveRecord::Base.connection
-schema = db.tables[1..-1].map do |table|
+tables = db.tables[1..-1].map do |table|
   {table =>
     {attributes:
       (db.columns(table).map(&:name)),
@@ -18,9 +18,10 @@ schema = db.tables[1..-1].map do |table|
         table.classify.constantize.reflections.map { |r|
         r[1].table_name
       }
-    }
+    },
   }
 end
+schema = {tables: tables, table_names: db.tables[1..-1]}
 
 # File.open('temp.json','w') do |file|
 #   file << schema.to_json
