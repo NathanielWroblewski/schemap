@@ -2,9 +2,8 @@ require "schemap/version"
 
 module Schemap
   class Schemap
-    def self.generate_schema
-
-      db = ActiveRecord::Base.connection
+    def self.generate_schema(rails_app)
+      db = rails_app.constantize::ActiveRecord::Base.connection
       db.tables.map do |table|
         {table =>
           {attributes:
