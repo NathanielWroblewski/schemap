@@ -5,8 +5,6 @@ module Schemap
     def self.generate_schema
       app_root = Pathname.new(File.expand_path('../../', __FILE__))
       p app_root
-      app_name = APP_ROOT.basename
-      p app_name
       blah = APP_ROOT.basename.to_s
       p blah
 
