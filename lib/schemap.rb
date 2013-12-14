@@ -1,4 +1,5 @@
-require "schemap/version"
+require 'schemap/version'
+require 'active_support/core_ext/string/inflections'
 
 module Schemap
   class Schemap
