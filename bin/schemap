@@ -22,4 +22,6 @@ schema = db.tables[1..-1].map do |table|
   }
 end
 
-p schema.to_json
+File.open('schemap/temp.json','w') do |file|
+  file << schema.to_json
+end
