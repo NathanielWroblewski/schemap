@@ -1,27 +1,21 @@
 # Schemap
 
-Schemap helps you visualize your [Rails](https://github.com/rails/rails) schemas by mapping them to [D3](http://d3js.org/) force graphs.
+![Skier Logo](https://raw.github.com/NathanielWroblewski/schemap/master/repo_images/schemap.png)
+
+Schemap (\skē-map\) walks your ActiveRecord models and database tables to generate visual schemas using [D3](http://d3js.org/).  Schemap is database agnostic.
 
 ## Screen Shot
-![Schemap Screen Shot](https://raw.github.com/NathanielWroblewski/schemap/91dd6925b0e24b00cc7a6970662ef95dbda0e96e/ScreenShot.png)
+![Schemap Screen Shot](https://raw.github.com/NathanielWroblewski/schemap/master/repo_images/ScreenShot.png)
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'schemap'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+No need to add Schemap to your Gemfile.  Just install the gem as:
 
     $ gem install schemap
 
 ## Usage
 
-From the root of your Rails app, simply call:
+From the root of your Rails app, simply run:
 
     $ schemap
 
