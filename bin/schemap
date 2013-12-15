@@ -6,9 +6,12 @@ require 'json'
 serialized_schema = `ruby #{File.dirname(__FILE__)}/../lib/schemap.rb`
 schema = YAML.load(serialized_schema)
 
-html = File.expand_path('../../lib/schemap/schemap.html', __FILE__)
-File.open(html, 'a') do |file|
-  file << "<script>window._schemap = #{schema.to_json};viz()</script>"
+html_path = File.expand_path('../../lib/schemap/schemap.html', __FILE__)
+html_source = File.read(html_path) + "<script>window._schemap = #{schema.to_json};viz()</script>"
+temp = "/tmp/schemap.html"
+
+File.open(temp, 'w') do |file|
+  file.write(html_source)
 end
 
-`open #{html}`
+`open #{temp}`
