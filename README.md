@@ -1,6 +1,9 @@
 # Schemap
 
-TODO: Write a gem description
+Schemap helps you visualize your [Rails](https://github.com/rails/rails) schemas by mapping them to [D3](http://d3js.org/) force graphs.
+
+## Screen Shot
+![Schemap Screen Shot](https://raw.github.com/NathanielWroblewski/schemap/91dd6925b0e24b00cc7a6970662ef95dbda0e96e/ScreenShot.png)
 
 ## Installation
 
@@ -18,7 +21,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+From the root of your Rails app, simply call:
+
+    $ schemap
 
 ## Contributing
 
