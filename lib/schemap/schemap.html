@@ -3,6 +3,16 @@
 <title>Schemap</title>
 <style>
 
+.footer {
+  position: absolute;
+  right: 150px;
+  text-align: right;
+  font-size: 30px;
+  width: 200px;
+  height: 100%;
+  top: 100px;
+}
+
 .node {
   cursor: pointer;
   stroke: #3182bd;
@@ -17,14 +27,15 @@
 
 </style>
 <body>
+  <div class="footer">
+  </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
 window.viz = function() {
-  var width = 960,
+  var width = window.innerWidth,
       height = 500,
       graph = window._schemap;
-      debugger
 
   var color = d3.scale.category20();
 
@@ -58,6 +69,18 @@ window.viz = function() {
 
     node.append("title")
         .text(function(d) { return d.name; });
+
+    node.on('mouseover', function(d) {
+      debugger
+      var table = d3.select(this).text();
+      var text = '<b>' + table + '</b><br>'
+      graph.attributes.forEach(function(attr) {
+        if (attr.table === table) {
+          text = text + '<br>' + attr.attrs.join('<br>');
+        }
+      })
+      d3.select('.footer').html(text);
+    })
 
     force.on("tick", function() {
       link.attr("x1", function(d) { return d.source.x; })
