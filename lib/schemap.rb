@@ -1,11 +1,9 @@
 require "#{Dir.pwd}/config/environment.rb"
 
-# puts Process.pid
-# puts '---'
-
 db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
 ActiveRecord::Base.establish_connection db_config['development']
-table_names = ActiveRecord::Base.connection.tables
+db_connection = ActiveRecord::Base.connection
+table_names = db_connection.tables
 table_names.shift # remove rails schema_migration table
 
 tables = table_names.map do |table_name|
@@ -21,4 +19,8 @@ associations = table_names.flat_map do |table|
   end
 end
 
-puts YAML.dump({nodes: tables, links: associations})
+attrs = table_names.map do |table|
+  { table: table, attrs: db_connection.columns(table).map(&:name) }
+end
+
+puts YAML.dump({nodes: tables, links: associations, attributes: attrs})
