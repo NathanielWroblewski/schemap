@@ -6,8 +6,8 @@ require 'schemap/version'
 Gem::Specification.new do |spec|
   spec.name          = "schemap"
   spec.version       = Schemap::VERSION
-  spec.authors       = ["Nathaniel Wroblewski"]
-  spec.email         = ["nathanielwroblewski@gmail.com"]
+  spec.authors       = ["Nathaniel Wroblewski", "Kenneth Rettberg"]
+  spec.email         = ["nathanielwroblewski@gmail.com", "kenrettberg@gmail.com"]
   spec.description   = %q{Visualize your Rails schema}
   spec.summary       = %q{Converts your Rails schema to a D3 force graph}
   spec.homepage      = "https://github.com/NathanielWroblewski/schemap"
