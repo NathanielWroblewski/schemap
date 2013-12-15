@@ -1,25 +1,14 @@
 #!/usr/bin/env ruby
-require 'active_record'
-require 'pg'
-require 'pry'
 
-ENV['RAILS_ENV'] = ARGV[0] || 'production'
-require "#{Dir.pwd}/config/environment.rb"
+require 'yaml'
+require 'json'
 
-db_config = YAML.load_file("#{Dir.pwd}/config/database.yml")
-ActiveRecord::Base.establish_connection db_config['development']
-db = ActiveRecord::Base.connection
-
-nodes = db.tables[1..-1].map{|table| {name: table}}
-links = db.tables[1..-1].flat_map do |table|
-  table.classify.constantize.reflections.map do |reflection|
-    {source: nodes.index(name: table), target: nodes.index(name: reflection[1].table_name), value: rand(1..5)}
-  end
-end
-schema = {nodes: nodes, links: links}
+serialized_schema = `ruby #{File.dirname(__FILE__)}/../lib/schemap.rb`
+schema = YAML.load(serialized_schema)
 
 html = File.expand_path('../../lib/schemap/schemap.html', __FILE__)
-File.open(html, 'a') do |f|
-  f << "<script>window.schemap = #{schema.to_json};viz()</script>"
+File.open(html, 'a') do |file|
+  file << "<script>window._schemap = #{schema.to_json};viz()</script>"
 end
+
 `open #{html}`
