@@ -71,7 +71,6 @@ window.viz = function() {
         .text(function(d) { return d.name; });
 
     node.on('mouseover', function(d) {
-      debugger
       var table = d3.select(this).text();
       var text = '<b>' + table + '</b><br>'
       graph.attributes.forEach(function(attr) {
