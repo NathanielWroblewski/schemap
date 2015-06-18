@@ -4,6 +4,8 @@
 
 Schemap (\skē-map\) walks your ActiveRecord models and database tables to generate visual schemas using [D3](http://d3js.org/).  Schemap is database agnostic.
 
+**SCHEMAP DOES NOT PARSE NAMESPACED CLASSES.  PLEASE USE [SCHEMAPPER](https://github.com/nathanielwroblewski/schemapper) INSTEAD**
+
 ## Screen Shot
 ![Schemap Screen Shot](https://raw.github.com/NathanielWroblewski/schemap/master/repo_images/ScreenShot.png)
 
